@@ -1,0 +1,24 @@
+h1{
+    text-align: center;
+}
+.puzzle-container{
+    flex-direction: column;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+}
+.tile-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 600px;
+    justify-content: center;
+}
+.tile{
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #333;
+}
+button{
+    margin: 10px;
+}
