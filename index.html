@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head>
-        <title>Slider Puzzle</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Slider Puzzle</h1>
-        <div class="puzzle-container">
-            <p>Solve the puzzle by having the board numbered from 1-15 in order</p>
-            <div class="tile-container">
-                <div class="tile" id="1">1</div>
-                <div class="tile" id="2">2</div>
-                <div class="tile" id="3">3</div>
-                <div class="tile" id="4">4</div>
-                <div class="tile" id="5">5</div>
-                <div class="tile" id="6">6</div>
-                <div class="tile" id="7">7</div>
-                <div class="tile" id="8">8</div>
-                <div class="tile" id="9">9</div>
-                <div class="tile" id="10">10</div>
-                <div class="tile" id="11">11</div>
-                <div class="tile" id="12">12</div>
-                <div class="tile" id="13">13</div>
-                <div class="tile" id="14">14</div>
-                <div class="tile" id="15">15</div>
-                <div class="tile" id="space"></div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<head>
+    <title>Slider Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Slider Puzzle</h1>
+    <div class="puzzle-container">
+        <p>Solve the puzzle by having the board numbered from 1-15 in order</p>
+        <div class="tile-container">
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="1" draggable="true" ondragstart="drag(event)">1</div>
             </div>
-            <button onclick="shuffleBoard()">Shuffle Board</button>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="2" draggable="true" ondragstart="drag(event)">2</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="3" draggable="true" ondragstart="drag(event)">3</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="4" draggable="true" ondragstart="drag(event)">4</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="5" draggable="true" ondragstart="drag(event)">5</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="6" draggable="true" ondragstart="drag(event)">6</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="7" draggable="true" ondragstart="drag(event)">7</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="8" draggable="true" ondragstart="drag(event)">8</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="9" draggable="true" ondragstart="drag(event)">9</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="10" draggable="true" ondragstart="drag(event)">10</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="11" draggable="true" ondragstart="drag(event)">11</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="12" draggable="true" ondragstart="drag(event)">12</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="13" draggable="true" ondragstart="drag(event)">13</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="14" draggable="true" ondragstart="drag(event)">14</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="tile" id="15" draggable="true" ondragstart="drag(event)">15</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
         </div>
-        <script src="script.js"></script>
-    </body>
+        <button onclick="shuffleBoard()">Shuffle Board</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>

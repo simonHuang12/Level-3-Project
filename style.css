@@ -6,18 +6,26 @@ h1{
     text-align: center;
     margin: 5px;
     padding: 10px;
+    border: 10px;
 }
 .tile-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    max-width: 600px;
     justify-content: center;
 }
 .tile{
+    height: 85px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 2px solid #333;
+    border: 5px solid #333;
+    display: flex;
+
+    font-size: 24px;
+    font-family: Impact;
+}
+.tile:hover{
+    background-color: gray;
 }
 button{
     margin: 10px;
