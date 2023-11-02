@@ -4,12 +4,11 @@ function initialize() {
     tiles = document.querySelectorAll('.tile');
     tileContainer = document.querySelector('.tile-container');
     for (let i = 0; i < tiles.length; i++) {
-		const x = parseInt(i / 4);
-		const y = i % 4;
-		tiles[i].addEventListener("click", () => swapTiles(x, y));
-	}
+        const row = parseInt(i / 4);
+        const col = i % 4;
+        tiles[i].addEventListener("click", () => swapTiles(row, col));
+    }
     board = new Array(4).fill().map(() => new Array(4));
-    console.log(board);
     shuffle = false;
     swapArr = [];
 }
@@ -33,26 +32,53 @@ function arrayEquals(arr1, arr2) {
         arr1.every((val, index) => val === arr2[index]);
 }
 
-function swapTiles(x, y) {
-    if (swapArr.length < 2) {
-        swapArr.push(""+x+y);
-        if (swapArr.length === 2) {
-            let swap1 = document.getElementById(parseInt(swapArr[0])).textContent;
-            let swap2 = document.getElementById(parseInt(swapArr[1])).textContent;
-
-            console.log(swap1);
-            console.log(swap2);
-
-            let isEmpty = (swap1 == "") || (swap2 == "");
-            if (!isEmpty) {
-                swapArr = [];
-            } else {
-                document.getElementById(swapArr[0]).innerHTML = swap2;
-                document.getElementById(swapArr[1]).innerHTML = swap1;
-                swapArr = [];
-            }
+function emptyDiv() {
+    for (let i = 0; i < tiles.length; i++) {
+        const x = parseInt(i / 4);
+        const y = i % 4;
+        if (document.getElementById("" + x + y).textContent === '') {
+            return "" + x + y;
         }
     }
+}
+
+function swapTiles(row, col) {
+    let swap = document.getElementById(""+row+col).textContent;
+    let adjRowUp, adjRowDown, adjColLeft, adjColRight;
+    if (row - 1 < 0) {
+        adjRowUp = 0;
+    }else{
+        adjRowUp = row-1;
+    }   
+    if (row + 1 > 3) {
+        adjRowDown = 3;
+    }else{
+        adjRowDown = row+1;
+    }
+    if (col - 1 < 0) {
+        adjColLeft = 0;
+    }else{
+        adjColLeft = col-1
+    }
+    if (col + 1 > 3) {
+        adjColRight = 0;
+    }else{
+        adjColRight = col+1;
+    }   
+    let adjRowUpTile, adjRowDownTile, adjColLeftTile, adjColRightTile;
+    adjRowUpTile = document.getElementById(""+adjRowUp+col).textContent;
+    adjRowDownTile = document.getElementById(""+adjRowDown+col).textContent;
+    adjColLeftTile = document.getElementById(""+row+adjColLeft).textContent;
+    adjColRightTile = document.getElementById(""+row+adjColRight).textContent; 
+
+    //console.log(adjColRightTile);
+    console.log(adjRowDown);
+    console.log(adjRowDownTile);
+    //console.log(adjColLeftTile);
+    //console.log(adjColRightTile);
+
+
+    console.log(emptyDiv(row, col));
 }
 
 function shuffleBoard() {
