@@ -10,8 +10,8 @@
 
 <body onload="initialize()">
     <h1>Slider Puzzle</h1>
+    <rules>Solve the puzzle by having the board numbered from 1-15 in order</rules>
     <div class="puzzle-container">
-        <p>Solve the puzzle by having the board numbered from 1-15 in order</p>
         <div class="tile-container">
             <div id="00" class="tile">1</div>
             <div id="01" class="tile">2</div>
@@ -32,6 +32,11 @@
         </div>
         <button onclick="shuffleBoard()">Shuffle Board</button>
     </div>
+    <div id="win-message" class="message">
+        <p>You win!</p>
+        <button class="close" onclick="closeWinMessage()">Close</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
