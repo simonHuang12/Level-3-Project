@@ -17,24 +17,31 @@ function initialize() {
 
 //finds the empty div in the 2d array so it can be swapped with
 function emptyDiv() {
+    let emptyId;
+    let emptyClass = document.querySelector(".empty");
+    emptyClass.classList.remove("empty");
     for (let i = 0; i < tiles.length; i++) {
         const x = parseInt(i / 4);
         const y = i % 4;
         if (document.getElementById("" + x + y).textContent === '') {
-            return "" + x + y;
+            emptyId = "" + x + y;
         }
     }
+    emptyClass = document.getElementById(emptyId);
+    emptyClass.classList.add("empty");
+    return emptyId;
 }
 
 function swapTiles(row, col) {
     //conditons to prevent movement
-    if (tileLocked){
+    if (tileLocked) {
         alert("Please shuffle the board before playing");
         return;
     }
     if (gameWon) {
         return;
     }
+
     const emptyId = emptyDiv();
     const clickedId = `${row}${col}`;
 
@@ -46,10 +53,25 @@ function swapTiles(row, col) {
 
         document.getElementById(emptyDiv()).innerHTML = clickedTile.textContent;
         clickedTile.textContent = emptyContent;
+    } else {
+        if (!shuffle) {
+            let invalidTile = document.getElementById(clickedId)
+            invalidTile.classList.add("shake");
+            setTimeout(() => invalidTile.classList.remove("shake"), 1000);
+            return;
+        }
     }
-    if (!shuffle){
+    if (!shuffle) {
         checkForWin();
-    }   
+        //checks if the tile being clicked is empty, if it is, it will run a shake animation
+        if (clickedId === emptyId) {
+            const emptyTile = document.querySelector(".empty");
+            emptyTile.classList.add("shake");
+            setTimeout(() => emptyTile.classList.remove("shake"), 1000);
+            return;
+        }
+
+    }
 }
 
 //used in swapTiles to help check if the adj tile is an empty one
@@ -67,12 +89,11 @@ function areTilesAdjacent(tile1Id, tile2Id) {
 function shuffleBoard() {
     shuffle = true;
     tileLocked = false;
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 2; i++) {
         const x = Math.floor(Math.random() * 4);
         const y = Math.floor(Math.random() * 4);
         swapTiles(x, y);
     }
-    tileLocked = gameWon ? false: true;
     shuffle = false;
 }
 
