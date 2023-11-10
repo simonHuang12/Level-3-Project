@@ -89,7 +89,7 @@ function areTilesAdjacent(tile1Id, tile2Id) {
 function shuffleBoard() {
     shuffle = true;
     tileLocked = false;
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1000; i++) {
         const x = Math.floor(Math.random() * 4);
         const y = Math.floor(Math.random() * 4);
         swapTiles(x, y);
